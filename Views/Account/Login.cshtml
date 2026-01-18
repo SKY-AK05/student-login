@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<div class="container ">
+    <div class="row justify-content-center d-flex align-items-center min-vh-100">
+        <div class="col-md-6">
+            <div class="card login-card p-4">
+                <div class="icon-circle">
+                    <i class="fas fa-graduation-cap" style="color: white; font-size: 24px;"></i>
+                </div>
+                <div class="title">
+                    <h1>Student Management</h1>
+                    <p>Sign in to access the admin dashboard</p>
+                </div>
+                <form action="/Account/Login" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" required>
+                    </div>
+                    <div class="mb-3 password-group">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+                        <button type="button" id="togglePassword"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-signin w-100">Sign In</button>
+                </form>
+                <div class="demo-credentials">
+                    <p>Demo credentials:</p>
+                    <p>admin / admin123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const toggleBtn = document.getElementById('togglePassword');
+
+    toggleBtn.addEventListener('click', () => {
+        const type = passwordInput.type === 'password' ? 'text' : 'password';
+        passwordInput.type = type;
+        toggleBtn.querySelector('i').classList.toggle('fa-eye');
+        toggleBtn.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+</script>
