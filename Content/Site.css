@@ -95,3 +95,74 @@ body {
     .demo-credentials p {
         margin: 0;
     }
+
+
+
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav-tabs .nav-link {
+    color: #6c757d;
+    border: none;
+}
+
+    .nav-tabs .nav-link.active {
+        color: #000;
+        border-bottom: 2px solid #0d6efd;
+    }
+
+
+
+body {
+    background-color: #f8f9fa;
+}
+
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.card-subtitle {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.card-icon {
+    font-size: 1.25rem;
+    color: #6c757d;
+}
+
+.table thead th {
+    background-color: #e9f0ff;
+    border-top: none;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.badge {
+    background-color: #212529;
+}
+
+.action-icon {
+    font-size: 1.2rem;
+}
+
+.modal-content {
+    border-radius: 0.5rem;
+}

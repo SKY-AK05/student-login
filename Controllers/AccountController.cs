@@ -1,9 +1,8 @@
 ﻿using Student.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace Student.Controllers
 {
@@ -19,6 +18,10 @@ namespace Student.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+            // If already logged in, go to dashboard
+            if (Session["User"] != null)
+                return RedirectToAction("Dashboard", "Home");
+
             return View();
         }
 
@@ -29,19 +32,31 @@ namespace Student.Controllers
 
             if (user != null)
             {
+                // Store username in session
                 Session["User"] = user.Username;
+
                 return RedirectToAction("Dashboard", "Home");
             }
 
+            // Display error UI message
             ViewBag.Error = "Invalid username or password!";
             return View();
         }
 
         public ActionResult Logout()
         {
+            // Clear session
             Session.Clear();
-            return RedirectToAction("Login");
+            Session.Abandon();
+
+            // Clear authentication cookie (safe for future Identity usage)
+            FormsAuthentication.SignOut();
+
+            // Redirect to login with explicit controller name
+            return RedirectToAction("Login", "Account");
         }
     }
 }
+
+
 
